@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Veltra · Smartphones for everyone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F6FB;--surface:#fff;--ink:#0E1330;--muted:#5A6180;--line:#DDE2F0;--accent:#3D5AFE;--accent2:#00C2A8;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B0E1E;--surface:#151A33;--ink:#EEF0FF;--muted:#A3AACB;--line:#262D52;--accent:#7C93FF;--accent2:#2DE0C6}}
+:root[data-theme="dark"]{--bg:#0B0E1E;--surface:#151A33;--ink:#EEF0FF;--muted:#A3AACB;--line:#262D52;--accent:#7C93FF;--accent2:#2DE0C6}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:"Space Grotesk",Inter,system-ui,sans-serif;margin:0;line-height:1.1}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font:700 24px "Space Grotesk",sans-serif;text-decoration:none}
+.logo b{color:var(--accent)}
+nav a{margin-left:20px;text-decoration:none;color:var(--muted);font-weight:500}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;padding:40px 0 56px}
+.hero h1{font-size:clamp(40px,7vw,76px);font-weight:700}
+.hero h1 span{color:var(--accent)}
+.hero p{color:var(--muted);font-size:18px;max-width:40ch;margin:16px 0 24px}
+.btn{display:inline-block;padding:13px 26px;border-radius:12px;background:var(--accent);color:#fff;font-weight:600;text-decoration:none}
+.btn.alt{background:transparent;border:2px solid var(--line);color:var(--ink);margin-left:8px}
+.stage{display:flex;justify-content:center;gap:14px;align-items:flex-end}
+.ph{--a:#3D5AFE;--b:#00C2A8;position:relative;width:96px;height:196px;border-radius:24px;background:linear-gradient(150deg,var(--a),var(--b));border:5px solid #0E1330;box-shadow:0 14px 28px rgba(14,19,48,.22)}
+.ph::before{content:"";position:absolute;top:10px;left:10px;width:30px;height:38px;border-radius:12px;background:rgba(0,0,0,.28);box-shadow:inset 0 0 0 2px rgba(255,255,255,.15)}
+.ph::after{content:"";position:absolute;top:19px;left:19px;width:12px;height:12px;border-radius:50%;background:#0E1330;box-shadow:0 0 0 2px rgba(255,255,255,.3),0 17px 0 -2px #0E1330}
+.ph.fold{width:150px;height:170px}
+.ph.fold i{position:absolute;left:50%;top:0;bottom:0;width:3px;background:rgba(0,0,0,.35)}
+.stage .ph:nth-child(2){transform:scale(1.2);margin:0 10px}
+.em{position:absolute;left:50%;bottom:20%;width:38px;height:38px;transform:translateX(-50%);fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;opacity:.92}
+.fold .em{left:76%}
+section{padding:50px 0}
+h2{font-size:clamp(30px,4.5vw,46px);font-weight:700;margin-bottom:8px}
+.sub{color:var(--muted);margin:0 0 22px}
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.tabs button{font:600 15px Inter,sans-serif;padding:9px 18px;border-radius:999px;border:2px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.card{background:var(--surface);border:2px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.card .art{height:250px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--bg),var(--surface))}
+.card .body{padding:16px 18px 20px}
+.tag{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.card h3{font-size:22px;margin:4px 0 6px}
+.spec{color:var(--muted);font-size:14px;margin:0 0 12px;min-height:44px}
+.price{font:700 26px "Space Grotesk",sans-serif}
+.price small{font:400 13px Inter;color:var(--muted);margin-left:6px;text-decoration:line-through}
+.why{background:var(--surface);border-block:2px solid var(--line)}
+.why .grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.why h3{font-size:20px;margin-bottom:4px}.why p{margin:0;color:var(--muted)}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+dt{font-weight:600;color:var(--accent);margin-top:14px}dd{margin:2px 0 0}
+footer{padding:28px 0;color:var(--muted);font-size:14px;text-align:center}
+@media (max-width:760px){.hero,.contact{grid-template-columns:1fr}.btn.alt{margin:10px 0 0}nav a:first-child{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><a class="logo" href="#top">Veltr<b>a</b></a><nav><a href="#phones">Phones</a><a href="#contact">Contact</a></nav></header>
+  <main id="top" class="hero">
+    <div>
+      <h1>The right phone,<br><span>at the right price.</span></h1>
+      <p>From everyday budget phones to premium flagships and foldables. Honest prices and a 1-year warranty on every phone.</p>
+      <a class="btn" href="#phones">Shop phones</a><a class="btn alt" href="#contact">Contact us</a>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="ph" style="--a:#FF7A59;--b:#FFB830"></div>
+      <div class="ph"></div>
+      <div class="ph" style="--a:#14B8A6;--b:#0E7490"></div>
+    </div>
+  </main>
+</div>
+
+<section id="phones">
+  <div class="wrap">
+    <h2>Our phones</h2>
+    <p class="sub">All prices in rupees and include GST.</p>
+    <div class="tabs" role="group" aria-label="Filter phones">
+      <button aria-pressed="true" data-f="all">All</button>
+      <button aria-pressed="false" data-f="Budget">Budget</button>
+      <button aria-pressed="false" data-f="Mid-range">Mid-range</button>
+      <button aria-pressed="false" data-f="Flagship">Flagship</button>
+      <button aria-pressed="false" data-f="Foldable">Foldable</button>
+    </div>
+    <div class="grid" id="grid">
+      <article class="card" data-c="Budget"><div class="art"><div class="ph" style="--a:#94A3B8;--b:#475569"><svg class="em" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div></div><div class="body"><span class="tag">Budget</span><h3>Veltra Spark 5</h3><p class="spec">6.5" HD+ · 4 GB / 64 GB · 5000 mAh · 13 MP camera</p><div class="price">₹8,999<small>₹10,499</small></div></div></article>
+      <article class="card" data-c="Budget"><div class="art"><div class="ph" style="--a:#22C55E;--b:#0E7490"><svg class="em" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></div></div><div class="body"><span class="tag">Budget</span><h3>Veltra Spark 5 Plus</h3><p class="spec">6.6" 90 Hz · 6 GB / 128 GB · 5000 mAh · 50 MP camera</p><div class="price">₹12,499<small>₹13,999</small></div></div></article>
+      <article class="card" data-c="Mid-range"><div class="art"><div class="ph" style="--a:#3D5AFE;--b:#00C2A8"><svg class="em" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5z"/></svg></div></div><div class="body"><span class="tag">Mid-range</span><h3>Veltra Nova 7</h3><p class="spec">6.7" AMOLED · 8 GB / 128 GB · 5G · 64 MP camera</p><div class="price">₹21,999<small>₹24,999</small></div></div></article>
+      <article class="card" data-c="Mid-range"><div class="art"><div class="ph" style="--a:#A855F7;--b:#EC4899"><svg class="em" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6l1.5 4.5L18 12l-4.5 1.5L12 18l-1.5-4.5L6 12l4.5-1.5z"/></svg></div></div><div class="body"><span class="tag">Mid-range</span><h3>Veltra Nova 7 Pro</h3><p class="spec">6.7" 120 Hz AMOLED · 12 GB / 256 GB · 5G · 67 W charging</p><div class="price">₹31,999<small>₹34,999</small></div></div></article>
+      <article class="card" data-c="Flagship"><div class="art"><div class="ph" style="--a:#1E293B;--b:#7C93FF"><svg class="em" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 20L9 7l4 7 3-4 6 10z"/></svg></div></div><div class="body"><span class="tag">Flagship</span><h3>Veltra Apex 10</h3><p class="spec">6.8" LTPO AMOLED · 12 GB / 256 GB · 200 MP camera · 5G</p><div class="price">₹64,999<small>₹69,999</small></div></div></article>
+      <article class="card" data-c="Foldable"><div class="art"><div class="ph fold" style="--a:#FF7A59;--b:#EC4899"><i></i><svg class="em" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></div></div><div class="body"><span class="tag">Foldable</span><h3>Veltra Fold X</h3><p class="spec">7.6" folding display · 12 GB / 512 GB · 5G · wireless charging</p><div class="price">₹1,39,999<small>₹1,49,999</small></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <h2>Why Veltra</h2>
+    <div class="grid" style="margin-top:22px">
+      <div><h3>1-year warranty</h3><p>On every phone we sell.</p></div>
+      <div><h3>Easy EMI</h3><p>Pay monthly on any phone.</p></div>
+      <div><h3>Free exchange</h3><p>Trade in your old phone for a discount.</p></div>
+      <div><h3>Service centres</h3><p>Fast repairs close to you.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div><h2>Get in touch</h2><p class="sub">Questions about a phone? We’re happy to help.</p></div>
+    <dl>
+      <dt>Phone</dt><dd><a href="tel:+910000000000">00000 00000</a></dd>
+      <dt>Email</dt><dd><a href="mailto:hello@veltra.example">hello@veltra.example</a></dd>
+      <dt>Hours</dt><dd>Monday to Saturday, 10 am to 8 pm</dd>
+    </dl>
+  </div>
+</section>
+<footer>© Veltra · Smartphones for everyone</footer>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.tabs button'),cards=document.querySelectorAll('#grid .card');
+  tabs.forEach(function(b){b.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    cards.forEach(function(c){c.hidden=!(b.dataset.f==='all'||c.dataset.c===b.dataset.f)});
+  })});
+})();
+</script>
+</body>
+</html>
